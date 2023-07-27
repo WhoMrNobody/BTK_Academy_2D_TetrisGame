@@ -8,10 +8,15 @@ namespace BTK_Academy_Tetris_Managers
 {
     public class GameManager : MonoBehaviour
     {
+        [Header("Counter")]
+        [Range(0.01f, 1f)]
+        [SerializeField] float _spawnRate=0.5f;
+
         SpawnManager _spawnManager;
         BoardManager _boardManager;
-
         ShapeManager _activeShape;
+
+        float _spawnCounter;
         void Start()
         {
             _spawnManager= GameObject.FindObjectOfType<SpawnManager>();
@@ -34,10 +39,17 @@ namespace BTK_Academy_Tetris_Managers
                 return;
             }
 
-            if (_activeShape)
+            if (Time.time > _spawnCounter)
             {
-                _activeShape.MoveDown();
+                _spawnCounter = Time.time + _spawnRate;
+
+                if (_activeShape)
+                {
+                    _activeShape.MoveDown();
+                }
             }
+
+           
                
         }
         Vector2 VectorToPrecisionNumber(Vector2 vec) {
