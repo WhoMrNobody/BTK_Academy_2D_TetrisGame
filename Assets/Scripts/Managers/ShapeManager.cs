@@ -2,17 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShapeManager : MonoBehaviour
+namespace BTK_Academy_Tetris_Managers
 {
-    // Start is called before the first frame update
-    void Start()
+    public class ShapeManager : MonoBehaviour
     {
-        
-    }
+        [SerializeField] bool _isCanRotate = true;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void MoveLeft()
+        {
+            transform.Translate(Vector3.left);
+        }
+
+        public void MoveRight()
+        {
+            transform.Translate(Vector3.right);
+        }
+
+        public void MoveUp()
+        {
+            transform.Translate(Vector3.up);
+        }
+
+        public void MoveDown()
+        {
+            transform.Translate(Vector3.down);
+        }
+
+        public void RotateLeft()
+        {   
+            if(_isCanRotate)
+            {
+                transform.Rotate(new Vector3(0, 0, 90f));
+            }
+
+        }
+
+        public void RotateRight()
+        {
+            if(_isCanRotate)
+            {
+                transform.Rotate(new Vector3(0, 0, -90f));
+            }
+        }
+
+
+
     }
 }
+
