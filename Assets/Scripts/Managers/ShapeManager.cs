@@ -10,22 +10,22 @@ namespace BTK_Academy_Tetris_Managers
 
         public void MoveLeft()
         {
-            transform.Translate(Vector3.left);
+            transform.Translate(Vector3.left, Space.World);
         }
 
         public void MoveRight()
         {
-            transform.Translate(Vector3.right);
+            transform.Translate(Vector3.right, Space.World);
         }
 
         public void MoveUp()
         {
-            transform.Translate(Vector3.up);
+            transform.Translate(Vector3.up, Space.World);
         }
 
         public void MoveDown()
         {
-            transform.Translate(Vector3.down);
+            transform.Translate(Vector3.down, Space.World);
         }
 
         public void RotateLeft()

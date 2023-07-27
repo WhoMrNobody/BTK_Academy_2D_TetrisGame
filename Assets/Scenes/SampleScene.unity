@@ -351,7 +351,7 @@ GameObject:
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -367,6 +367,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed99c210a9102d443aed32d966c7cc64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shapes:
+  - {fileID: -6778246680259385580, guid: f3c764cb770f42b42b817029971abf0c, type: 3}
+  - {fileID: 8179375226659046858, guid: e40dbebca613f6340b04793c151b8738, type: 3}
+  - {fileID: 5948463830772306263, guid: 429358fd946a8334099984bb9029b917, type: 3}
+  - {fileID: 3067328650634687884, guid: f6740b6706615394482ac7453a7d07f2, type: 3}
+  - {fileID: 6957817770520513113, guid: 928abce9f8d3ed949865bbfe3466d6c9, type: 3}
+  - {fileID: 2994501805661570543, guid: 6cd6a5772ff08eb4d8bf33269c1ae232, type: 3}
 --- !u!4 &1495083522
 Transform:
   m_ObjectHideFlags: 0
@@ -375,7 +382,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495083520}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 4, y: 21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -479,8 +486,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e051fe3ab09f28241a337e07ab3a509e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnManager: {fileID: 1495083521}
-  BoardManager: {fileID: 1182354649}
 --- !u!4 &1644767230
 Transform:
   m_ObjectHideFlags: 0
