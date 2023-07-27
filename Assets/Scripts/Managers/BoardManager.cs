@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace BTK_Academy_Tetris_Managers
@@ -29,6 +30,25 @@ namespace BTK_Academy_Tetris_Managers
             MakeEmptyBoxes();
         }
 
+        bool IsShapeInBoard(int x, int y)
+        {
+            return (x>=0 && x < genislik && y>=0);
+        }
+
+        public bool InRightPos(ShapeManager shape)
+        {
+            foreach (Transform child in shape.transform)
+            {
+                Vector2 pos = VectorToPrecisionNumber(child.position);
+
+                if (!IsShapeInBoard((int)pos.x, (int)pos.y))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
         void MakeEmptyBoxes()
         {   
             if(_tilePrefab != null)
@@ -50,7 +70,13 @@ namespace BTK_Academy_Tetris_Managers
 
         }
 
-       
+        Vector2 VectorToPrecisionNumber(Vector2 vec)
+        {
+
+            return new Vector2(Mathf.Round(vec.x), Mathf.Round(vec.y));
+        }
+
+
     }
 }
 

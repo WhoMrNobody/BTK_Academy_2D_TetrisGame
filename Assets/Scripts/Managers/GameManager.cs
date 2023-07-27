@@ -46,6 +46,16 @@ namespace BTK_Academy_Tetris_Managers
                 if (_activeShape)
                 {
                     _activeShape.MoveDown();
+
+                    if (!_boardManager.InRightPos(_activeShape))
+                    {
+                        _activeShape.MoveUp();
+
+                        if (_spawnManager)
+                        {
+                            _activeShape = _spawnManager.SpawnShapes();
+                        }
+                    }
                 }
             }
 
