@@ -7,23 +7,12 @@ namespace BTK_Academy_Tetris_Managers
 {
     public class BoardManager : MonoBehaviour
     {
-        public static BoardManager Instance;
 
         [SerializeField] private Transform _tilePrefab;
 
-        public int yukseklik = 22;
+        public int yukseklik = 19;
         public int genislik = 10;
-        void Awake()
-        {
-            if(Instance == null)
-            {
-                Instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
+
 
         private void Start()
         {
@@ -32,7 +21,7 @@ namespace BTK_Academy_Tetris_Managers
 
         bool IsShapeInBoard(int x, int y)
         {
-            return (x>=0 && x < genislik && y>=0);
+            return (x >= 0 && x < genislik && y >= 0);
         }
 
         public bool InRightPos(ShapeManager shape)
@@ -40,13 +29,14 @@ namespace BTK_Academy_Tetris_Managers
             foreach (Transform child in shape.transform)
             {
                 Vector2 pos = VectorToPrecisionNumber(child.position);
-
+               
                 if (!IsShapeInBoard((int)pos.x, (int)pos.y))
                 {
                     return false;
                 }
             }
 
+            Debug.Log("trueee");
             return true;
         }
         void MakeEmptyBoxes()
