@@ -13,7 +13,12 @@ namespace BTK_Academy_Tetris_Managers
         public int yukseklik = 19;
         public int genislik = 10;
 
+        Transform[,] _grid;
 
+        private void Awake()
+        {
+            _grid = new Transform[genislik, yukseklik];
+        }
         private void Start()
         {
             MakeEmptyBoxes();
@@ -34,6 +39,15 @@ namespace BTK_Academy_Tetris_Managers
                 {
                     return false;
                 }
+
+                if(pos.y < yukseklik)
+                {
+                    if (IsGridFull((int)pos.x, (int)pos.y, shape))
+                    {
+                        return false;
+                    }
+                }
+                
             }
 
             Debug.Log("trueee");
@@ -58,6 +72,22 @@ namespace BTK_Academy_Tetris_Managers
                 Debug.Log("_tilePrefab gameObject reference is empty");
             }
 
+        }
+
+        public void MakeChildShapeInGrid(ShapeManager shape)
+        {
+            if (shape == null) return;
+
+            foreach (Transform child in shape.transform)
+            {
+                Vector2 pos = VectorToPrecisionNumber(child.position);
+                _grid[(int)pos.x, (int)pos.y] = child;
+            }
+        }
+
+        bool IsGridFull(int x, int y, ShapeManager shape)
+        {
+            return (_grid[x, y] != null && _grid[x, y].parent != shape.transform);
         }
 
         Vector2 VectorToPrecisionNumber(Vector2 vec)

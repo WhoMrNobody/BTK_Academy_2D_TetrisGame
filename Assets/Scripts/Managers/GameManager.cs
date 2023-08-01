@@ -50,6 +50,7 @@ namespace BTK_Academy_Tetris_Managers
                     if (!_boardManager.InRightPos(_activeShape))
                     {
                         _activeShape.MoveUp();
+                        _boardManager.MakeChildShapeInGrid(_activeShape);
 
                         if (_spawnManager)
                         {
